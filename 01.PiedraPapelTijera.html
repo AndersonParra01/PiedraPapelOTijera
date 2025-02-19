@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Piedra Papel o Tijera</h1>
+    <p id="resultado"></p>
+    <script>
+      function piedraPapelOTijera() {
+        const opciones = ["piedra", "papel", "tijera"];
+        const resultadoHtml = document.getElementById("resultado");
+        const usuario = prompt("Elije. piedra, papel o tijera: ").toLowerCase();
+        if (!opciones.includes(usuario)) {
+          alert("Opción no válida. Inténtalo de nuevo.");
+          return;
+        }
+        console.log("Valor: ", usuario);
+        const computadora =
+          opciones[Math.floor(Math.random() * opciones.length)];
+        console.log(`Tu elección: ${usuario}`);
+        console.log(`La elección del computador: ${computadora}`);
+
+        if (usuario === computadora) {
+          alert("Empate!");
+          resultadoHtml.innerHTML += "Empate!";
+        } else if (
+          (usuario === "piedra" && computadora === "tijera") ||
+          (usuario === "papel" && computadora === "piedra") ||
+          (usuario === "tijera" && computadora === "papel")
+        ) {
+          resultadoHtml.innerHTML = `Has ganado! la computadora selecciono: ${computadora} tu elección:: ${usuario}`;
+          resultadoHtml.innerHTML = `Tu elección: ${usuario}<br>La elección del computador: ${computadora}<br>`;
+          resultadoHtml.innerHTML += "Has ganado!";
+
+          alert(
+            "Has ganado!",
+            `la computadora selecciono: ${computadora}`,
+            `tu elección:: ${usuario}`
+          );
+        } else {
+          alert("Has perdido!");
+          resultadoHtml.innerHTML += "Has perdido!";
+        }
+      }
+
+      piedraPapelOTijera();
+    </script>
+  </body>
+</html>
