@@ -42,6 +42,8 @@
           );
         } else {
           alert("Has perdido!");
+          resultadoHtml.innerHTML = `Has perdido la computadora selecciono: ${computadora} tu elección:: ${usuario}`;
+          resultadoHtml.innerHTML = `Tu elección: ${usuario}<br>La elección del computador: ${computadora}<br>`;
           resultadoHtml.innerHTML += "Has perdido!";
         }
       }
